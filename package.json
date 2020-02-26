@@ -1,0 +1,18 @@
+{
+  "name": "robert-deeds",
+  "version": "1.0.0",
+  "description": "Carpet cleaning website",
+  "main": "app.js",
+  "scripts": {
+    "build":"postcss public/Style/tailwind.css -o public/Style/styles.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alec Venzor",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "postcss-cli": "^7.1.0",
+    "tailwindcss": "^1.2.0"
+  }
+}
