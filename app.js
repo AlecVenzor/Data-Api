@@ -15,6 +15,9 @@ app.use(express.static(publicDir));
 app.get('/', function (req, res) {
     res.render('index');
 });
+app.get('/iss', function (req, res) {
+    res.render('iss');
+});
 app.listen(port,() =>
 {
     console.log("Starting Server on Port " + port)
