@@ -7,13 +7,20 @@
 </p>
  <div id="mapid"></div>
 <script>
-    const myMap = L.map('mapid').setView([51.505, -0.09], 1);
+    // making a map 
+    const myMap = L.map('mapid').setView([0,0], 1);
     const attribution ='Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors';
     const tileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
     const tile = L.tileLayer(tileUrl,{attribution});
     tile.addTo(myMap)
-
-    const marker =L.marker([0,0]).addTo(myMap);
+ //icon stuff 
+    const myIcon = L.icon({
+    iconUrl: '/Images/iss.png',
+    iconSize: [50, 32],
+    iconAnchor: [25, 16],
+});
+    const marker =L.marker([0,0],{icon :myIcon}).addTo(myMap);
+    // grab data 
     async function getIss()
     {
         const response = await fetch("https://api.wheretheiss.at/v1/satellites/25544");
@@ -23,6 +30,7 @@
         console.log(longitude,latitude)
         document.getElementById('lat').textContent = latitude;
         document.getElementById('long').textContent = longitude;
+        //update marker
         marker.setLatLng([latitude,longitude])
     }
     getIss()
