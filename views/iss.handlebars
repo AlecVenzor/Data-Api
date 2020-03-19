@@ -1,9 +1,9 @@
 <h1>Where is the Iss?</h1>
 <p>
-    latitude: <span id="lat"></span>
+    latitude: <span id="lat"></span><span>&#176;</span>
 </p>
 <p>
-    longitude: <span id="long"></span>
+    longitude: <span id="long"></span><span>&#176;</span>
 </p>
  <div id="mapid"></div>
 <script>
@@ -28,11 +28,12 @@
         const latitude = obj.latitude;
         const longitude = obj.longitude;
         console.log(longitude,latitude)
-        document.getElementById('lat').textContent = latitude;
-        document.getElementById('long').textContent = longitude;
+        document.getElementById('lat').textContent = latitude.toFixed(3);
+        document.getElementById('long').textContent = longitude.toFixed(3);
         //update marker
         marker.setLatLng([latitude,longitude])
     }
     getIss()
     
+    setInterval(getIss, 1000)
 </script>
